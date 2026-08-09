@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prem Prakash — Telecom Solution Architect</title>
+<meta name="description" content="Portfolio of Prem Prakash, telecom solution architect specializing in GSM/UMTS/LTE/5G/NR RAN deployment — selected work, background, and contact.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     TOKENS
+     ============================================ */
+  :root{
+    --bg:            #0A0F1E;
+    --bg-alt:        #0D1424;
+    --panel:         #121A2E;
+    --panel-line:    #232D45;
+    --text:          #E9ECF4;
+    --text-muted:    #8B93AC;
+    --text-faint:    #565F7A;
+    --accent:        #F4A340;   /* signal amber */
+    --accent-dim:    #B87A2E;
+    --accent-cyan:   #52D6E8;   /* secondary — sparing use */
+    --success:       #6FCF97;
+
+    --font-display:  'Space Grotesk', sans-serif;
+    --font-body:     'Newsreader', serif;
+    --font-mono:     'JetBrains Mono', monospace;
+
+    --container:     1240px;
+    --radius:        2px;
+    --ease:          cubic-bezier(.16,.84,.44,1);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  section{ position:relative; }
+
+  ::selection{ background:var(--accent); color:#0A0F1E; }
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:7px; height:7px;
+    background:var(--accent);
+    border-radius:50%;
+    flex:none;
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:-.01em;
+    margin:0;
+  }
+
+  .btn{
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:14px 28px;
+    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:all .25s var(--ease);
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#160D02;
+  }
+  .btn-primary:hover{
+    background:#FFB65C;
+    transform:translateY(-2px);
+  }
+  .btn-ghost{
+    border-color:var(--panel-line);
+    color:var(--text);
+    background:transparent;
+  }
+  .btn-ghost:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+
+  /* ============================================
+     NAVBAR
+     ============================================ */
+  .navbar{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    padding:22px 0;
+    transition:padding .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .navbar.is-scrolled{
+    padding:14px 0;
+    background:rgba(10,15,30,.86);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom-color:var(--panel-line);
+  }
+  .navbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:-.01em;
+  }
+  .logo-mark{
+    width:26px; height:26px;
+    position:relative;
+    flex:none;
+  }
+  .logo-mark svg{ width:100%; height:100%; display:block; }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+  }
+  .nav-links a{
+    font-family:var(--font-mono);
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    position:relative;
+    padding:4px 0;
+    transition:color .2s;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--accent);
+    transition:width .25s var(--ease);
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-cta{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    border:1px solid var(--panel-line);
+    padding:9px 18px;
+    border-radius:var(--radius);
+    transition:all .2s;
+  }
+  .nav-cta:hover{ border-color:var(--accent); color:var(--accent); }
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    z-index:101;
+  }
+  .nav-toggle span{
+    width:24px; height:1.5px;
+    background:var(--text);
+    transition:transform .3s var(--ease), opacity .2s;
+  }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* ============================================
+     HERO
+     ============================================ */
+  .hero{
+    min-height:100vh;
+    padding:150px 0 60px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% 20%, rgba(244,163,64,.08), transparent 60%),
+      var(--bg);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:.95fr 1.15fr;
+    gap:60px;
+    align-items:center;
+    width:100%;
+  }
+
+  .hero-copy .eyebrow{ margin-bottom:22px; }
+  .hero-copy h1{
+    font-size:clamp(38px, 4.6vw, 60px);
+    line-height:1.06;
+    margin-bottom:22px;
+  }
+  .hero-copy h1 em{
+    font-family:var(--font-body);
+    font-style:italic;
+    font-weight:400;
+    color:var(--accent);
+  }
+  .hero-copy p{
+    font-size:18px;
+    color:var(--text-muted);
+    max-width:44ch;
+    margin-bottom:34px;
+  }
+  .hero-actions{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+
+  .hero-meta{
+    display:flex;
+    gap:32px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+    border-top:1px solid var(--panel-line);
+    padding-top:20px;
+  }
+  .hero-meta strong{
+    display:block;
+    color:var(--text);
+    font-size:20px;
+    font-family:var(--font-display);
+    font-weight:600;
+    margin-bottom:2px;
+  }
+
+  /* Spline viewfinder frame — the signature element */
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1;
+    width:100%;
+  }
+  .viewfinder{
+    position:relative;
+    width:100%;
+    height:100%;
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--panel);
+  }
+  .viewfinder iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
+  /* corner brackets */
+  .vf-corner{
+    position:absolute;
+    width:26px; height:26px;
+    border:2px solid var(--accent);
+    z-index:3;
+    pointer-events:none;
+  }
+  .vf-corner.tl{ top:14px; left:14px; border-right:0; border-bottom:0; }
+  .vf-corner.tr{ top:14px; right:14px; border-left:0; border-bottom:0; }
+  .vf-corner.bl{ bottom:14px; left:14px; border-right:0; border-top:0; }
+  .vf-corner.br{ bottom:14px; right:14px; border-left:0; border-top:0; }
+
+  .vf-scanline{
+    position:absolute;
+    left:14px; right:14px;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    box-shadow:0 0 8px 1px rgba(82,214,232,.6);
+    animation:scan 5s linear infinite;
+    z-index:3;
+    pointer-events:none;
+    opacity:.7;
+  }
+  @keyframes scan{
+    0%{ top:14px; opacity:0; }
+    8%{ opacity:.8; }
+    92%{ opacity:.8; }
+    100%{ top:calc(100% - 14px); opacity:0; }
+  }
+
+  .vf-status{
+    position:absolute;
+    top:14px; left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--text);
+    background:rgba(10,15,30,.65);
+    backdrop-filter:blur(6px);
+    padding:6px 12px;
+    border-radius:20px;
+    border:1px solid var(--panel-line);
+    z-index:4;
+  }
+  .vf-status .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--success);
+    box-shadow:0 0 0 0 rgba(111,207,151,.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(111,207,151,.55); }
+    70%{ box-shadow:0 0 0 8px rgba(111,207,151,0); }
+    100%{ box-shadow:0 0 0 0 rgba(111,207,151,0); }
+  }
+
+  .vf-caption{
+    margin-top:14px;
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+    letter-spacing:.04em;
+  }
+
+  /* ============================================
+     SECTION HEADS
+     ============================================ */
+  .section{ padding:130px 0; }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:64px;
+    border-bottom:1px solid var(--panel-line);
+    padding-bottom:32px;
+  }
+  .section-head h2{
+    font-size:clamp(30px, 3.4vw, 44px);
+    margin-top:14px;
+  }
+  .section-head p{
+    color:var(--text-muted);
+    max-width:34ch;
+    font-size:16px;
+    margin:0;
+  }
+
+  .bg-alt{ background:var(--bg-alt); }
+
+  /* ============================================
+     PROJECTS GRID
+     ============================================ */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--panel-line);
+    border:1px solid var(--panel-line);
+  }
+  .project-card{
+    background:var(--bg-alt);
+    padding:36px 32px;
+    display:flex;
+    flex-direction:column;
+    min-height:340px;
+    transition:background .3s var(--ease);
+  }
+  .project-card:hover{
+    background:var(--panel);
+  }
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:28px;
+  }
+  .card-tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent-cyan);
+    border:1px solid var(--panel-line);
+    padding:5px 10px;
+    border-radius:20px;
+  }
+  .card-arrow{
+    width:34px; height:34px;
+    border:1px solid var(--panel-line);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .25s var(--ease);
+    flex:none;
+  }
+  .project-card:hover .card-arrow{
+    background:var(--accent);
+    border-color:var(--accent);
+    transform:rotate(45deg);
+  }
+  .project-card:hover .card-arrow svg path{ stroke:#160D02; }
+
+  .project-card h3{
+    font-size:23px;
+    margin-bottom:12px;
+    line-height:1.25;
+  }
+  .project-card p{
+    color:var(--text-muted);
+    font-size:15.5px;
+    margin:0 0 auto 0;
+    flex:1;
+  }
+  .card-metric{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--panel-line);
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+    display:flex;
+    justify-content:space-between;
+  }
+  .card-metric strong{ color:var(--accent); font-weight:500; }
+
+  /* ============================================
+     ABOUT
+     ============================================ */
+  .about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:80px;
+    align-items:start;
+  }
+  .about-portrait{
+    position:sticky;
+    top:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px 0;
+  }
+
+  .about-copy p{
+    font-size:18px;
+    color:var(--text-muted);
+    margin:0 0 24px;
+  }
+  .about-copy p strong{ color:var(--text); font-weight:500; }
+  .about-quote{
+    font-family:var(--font-body);
+    font-style:italic;
+    font-size:24px;
+    line-height:1.5;
+    color:var(--text);
+    border-left:2px solid var(--accent);
+    padding-left:24px;
+    margin:40px 0;
+  }
+
+  /* ---- Skills marquee: 3 rows, alternating direction ---- */
+  .skills-marquee{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:40px;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-row{
+    display:flex;
+    gap:12px;
+    width:max-content;
+    animation:marquee-ltr 32s linear infinite;
+  }
+  .marquee-row.rtl{ animation-name:marquee-rtl; }
+  .marquee-row:hover{ animation-play-state:paused; }
+  @keyframes marquee-ltr{
+    from{ transform:translateX(-50%); }
+    to{ transform:translateX(0%); }
+  }
+  @keyframes marquee-rtl{
+    from{ transform:translateX(0%); }
+    to{ transform:translateX(-50%); }
+  }
+  .skill-chip{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--text-muted);
+    border:1px solid var(--panel-line);
+    padding:8px 16px;
+    border-radius:20px;
+    flex:none;
+    white-space:nowrap;
+  }
+
+  /* ---- Career map: connected mini-map timeline ---- */
+  .career-map{
+    position:relative;
+    margin-top:90px;
+  }
+  .career-map-head{
+    margin-bottom:44px;
+  }
+  .career-line{
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    height:1px;
+    background-image:repeating-linear-gradient(90deg, var(--panel-line) 0 6px, transparent 6px 14px);
+    transform:translateY(-50%);
+  }
+  .career-track{
+    position:relative;
+    display:flex;
+    height:150px;
+  }
+  .career-node{
+    flex:1;
+    display:grid;
+    grid-template-rows:1fr auto 1fr;
+    align-items:center;
+    justify-items:center;
+    text-align:center;
+    padding:0 6px;
+    min-width:0;
+  }
+  .node-dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent);
+    grid-row:2;
+    z-index:2;
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  }
+  .career-node:hover .node-dot{
+    transform:scale(1.3);
+    box-shadow:0 0 0 6px rgba(244,163,64,.15);
+  }
+  .node-label{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .career-node.above .node-label{ grid-row:1; align-self:end; padding-bottom:16px; }
+  .career-node.below .node-label{ grid-row:3; align-self:start; padding-top:16px; }
+  .node-year{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:.05em;
+  }
+  .node-label strong{
+    font-family:var(--font-display);
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--text);
+    line-height:1.3;
+  }
+  .node-role{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    color:var(--text-faint);
+    line-height:1.3;
+  }
+
+  /* ---- Device widget (retro signal unit) ---- */
+  .device-case{
+    --case:#EDEBE4;
+    --text-dark:#201C16;
+    --accent-orange:var(--accent);
+    --accent-green:#6FCF97;
+    --grid-lines:#CFCBBF;
+    width:320px;
+    max-width:100%;
+    height:400px;
+    background-color:var(--case);
+    border-radius:12px;
+    font-family:var(--font-mono);
+    box-shadow:
+      15px 15px 30px rgba(0,0,0,.28),
+      -5px -5px 15px rgba(255,255,255,.05);
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+  .device-case .inputs{ display:none; }
+  .device-case .speaker-grille{
+    width:100%;
+    height:44px;
+    background-image:radial-gradient(#a8a49a 1.5px, transparent 1.5px);
+    background-size:6px 6px;
+    margin-bottom:14px;
+    opacity:.6;
+    flex:none;
+  }
+  .device-case .screen-window{
+    width:100%;
+    height:240px;
+    background:#f1f0eb;
+    border:1px solid #d3d0c6;
+    border-radius:4px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:inset 2px 2px 5px rgba(0,0,0,.08);
+    margin-bottom:10px;
+    flex:none;
+  }
+  .device-case .glass-glare{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:linear-gradient(120deg, rgba(255,255,255,0) 40%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 60%);
+    z-index:10;
+    pointer-events:none;
+  }
+  .device-case .tuner-band{
+    display:flex;
+    width:400%;
+    height:100%;
+    transition:transform .8s cubic-bezier(.2,.8,.2,1);
+  }
+  .device-case .panel{
+    width:25%;
+    height:100%;
+    padding:16px;
+    position:relative;
+    border-right:1px solid var(--grid-lines);
+    background:linear-gradient(90deg, transparent 95%, var(--grid-lines) 95%),
+      linear-gradient(transparent 95%, var(--grid-lines) 95%);
+    background-size:20px 20px;
+  }
+  .device-case .label{
+    font-weight:700;
+    font-size:.68rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    color:#8a8578;
+  }
+  .device-case .freq-display{
+    position:absolute;
+    bottom:16px; left:0;
+    width:100%; height:36px;
+    border-top:2px solid var(--text-dark);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 10px;
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    color:var(--text-dark);
+  }
+  .device-case .freq-needle{
+    position:absolute;
+    bottom:0; left:50%;
+    width:2px; height:100%;
+    background:var(--accent-orange);
+    z-index:5;
+  }
+  .device-case .tape-mechanism{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    margin-top:28px;
+  }
+  .device-case .spool{
+    width:50px; height:50px;
+    border-radius:50%;
+    background:#ddd9cd;
+    position:relative;
+    border:1px solid #bbb6a8;
+    overflow:hidden;
+  }
+  .device-case .spool::after{
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:conic-gradient(#332f27 0deg, #332f27 120deg, transparent 120deg, transparent 180deg, #332f27 180deg, #332f27 300deg, transparent 300deg);
+    border-radius:50%;
+  }
+  .device-case .counter-box{
+    background:#201C16;
+    color:#EDEBE4;
+    padding:4px 9px;
+    font-family:var(--font-mono);
+    border-radius:2px;
+    display:inline-block;
+    letter-spacing:4px;
+    margin-top:14px;
+  }
+  .device-case .waveform{
+    width:100%; height:64px;
+    display:flex;
+    align-items:center;
+    gap:2px;
+    margin-top:14px;
+  }
+  .device-case .wave-bar{
+    flex:1;
+    background:var(--text-dark);
+    height:8px;
+    animation:device-equalize 1s ease-in-out infinite;
+  }
+  @keyframes device-equalize{ 0%,100%{ height:8px; } 50%{ height:48px; } }
+  .device-case .switch-row{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:14px;
+  }
+  .device-case .toggle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--text-dark);
+  }
+  .device-case .toggle-graphic{
+    width:36px; height:18px;
+    background:#ccc7ba;
+    border-radius:10px;
+    position:relative;
+  }
+  .device-case .toggle-graphic::after{
+    content:'';
+    position:absolute;
+    top:2px; left:2px;
+    width:14px; height:14px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  .device-case .controls-strip{
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 4px;
+    margin-bottom:8px;
+    flex:none;
+  }
+  .device-case .push-btn{
+    width:44px; height:44px;
+    border-radius:50%;
+    background:#f2f1ec;
+    border:1px solid #ddd9cd;
+    box-shadow:inset 0 0 5px rgba(255,255,255,1), 3px 3px 6px rgba(0,0,0,.1);
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:all .1s;
+    position:relative;
+  }
+  .device-case .push-btn::after{
+    content:'';
+    width:18px; height:18px;
+    border-radius:50%;
+    background:#e2ded1;
+    box-shadow:inset 1px 1px 2px rgba(0,0,0,.1);
+  }
+  .device-case .push-btn:active{
+    box-shadow:inset 2px 2px 5px rgba(0,0,0,.1), 1px 1px 2px rgba(0,0,0,.1);
+    transform:translateY(1px);
+  }
+  .device-case .push-btn:active::after{ background:var(--accent-orange); }
+  .device-case .btn-label{
+    position:absolute;
+    bottom:-22px;
+    font-size:.62rem;
+    font-weight:600;
+    color:#938e80;
+    text-transform:uppercase;
+  }
+  #app1:checked ~ .screen-window .tuner-band{ transform:translateX(0%); }
+  #app2:checked ~ .screen-window .tuner-band{ transform:translateX(-25%); }
+  #app3:checked ~ .screen-window .tuner-band{ transform:translateX(-50%); }
+  #app4:checked ~ .screen-window .tuner-band{ transform:translateX(-75%); }
+  #app1:checked ~ .controls-strip label[for="app1"]::after{ background:var(--accent-green); }
+  #app2:checked ~ .controls-strip label[for="app2"]::after{ background:var(--accent-green); }
+  #app3:checked ~ .controls-strip label[for="app3"]::after{ background:var(--accent-green); }
+  #app4:checked ~ .controls-strip label[for="app4"]::after{ background:var(--accent-green); }
+  #app1:checked ~ .screen-window .tuner-band .panel-1 .tape-mechanism .spool{ animation:device-spin 4s linear infinite; }
+  @keyframes device-spin{ to{ transform:rotate(360deg); } }
+
+  /* ============================================
+     CONTACT
+     ============================================ */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:70px;
+  }
+  .contact-info h2{
+    font-size:clamp(30px,3.4vw,44px);
+    margin-bottom:18px;
+  }
+  .contact-info p{
+    color:var(--text-muted);
+    font-size:17px;
+    max-width:38ch;
+    margin-bottom:40px;
+  }
+  .contact-list{ display:flex; flex-direction:column; gap:22px; }
+  .contact-list li{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--panel-line);
+  }
+  .contact-list .label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .contact-list .value{
+    font-family:var(--font-display);
+    font-size:19px;
+    transition:color .2s;
+  }
+  .contact-list a.value:hover{ color:var(--accent); }
+
+  form.contact-form{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    padding:44px;
+    border-radius:6px;
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  .field{ margin-bottom:26px; }
+  .field label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-bottom:10px;
+  }
+  .field input,
+  .field textarea{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--panel-line);
+    padding:10px 2px;
+    font-family:var(--font-body);
+    font-size:16px;
+    color:var(--text);
+    resize:vertical;
+    transition:border-color .25s;
+  }
+  .field input:focus,
+  .field textarea:focus{
+    outline:none;
+    border-bottom-color:var(--accent);
+  }
+  .field textarea{ min-height:110px; }
+  .form-note{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+    margin-top:18px;
+  }
+  .form-success{
+    display:none;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--success);
+    margin-top:18px;
+  }
+  .form-success.is-visible{ display:flex; }
+  .form-error{
+    display:none;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:#F16565;
+    margin-top:18px;
+  }
+  .form-error.is-visible{ display:flex; }
+  .btn[disabled]{
+    opacity:.6;
+    cursor:not-allowed;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .site-footer{
+    border-top:1px solid var(--panel-line);
+    padding:36px 0;
+  }
+  .site-footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-faint);
+  }
+  .footer-links{ display:flex; gap:24px; }
+  .footer-links a:hover{ color:var(--accent); }
+  .back-to-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text-faint);
+    transition:color .2s;
+  }
+  .back-to-top:hover{ color:var(--accent); }
+
+  /* ============================================
+     REVEAL ON SCROLL
+     ============================================ */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s var(--ease), transform .7s var(--ease);
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (max-width: 980px){
+    .wrap{ padding:0 28px; }
+    .hero .wrap{ grid-template-columns:1fr; gap:50px; }
+    .hero{ padding:130px 0 60px; text-align:left; }
+    .hero-visual{ order:-1; aspect-ratio:4/3; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-portrait{ position:relative; top:0; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .projects-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+
+  @media (max-width: 720px){
+    .nav-links, .nav-cta{ display:none; }
+    .nav-toggle{ display:flex; }
+    .mobile-menu{
+      position:fixed;
+      inset:0 0 auto 0;
+      top:0;
+      background:var(--bg);
+      padding:110px 32px 40px;
+      display:flex;
+      flex-direction:column;
+      gap:0;
+      transform:translateY(-100%);
+      transition:transform .4s var(--ease);
+      z-index:99;
+      height:100vh;
+    }
+    .mobile-menu.is-open{ transform:translateY(0); }
+    .mobile-menu a{
+      font-family:var(--font-display);
+      font-size:28px;
+      padding:18px 0;
+      border-bottom:1px solid var(--panel-line);
+      color:var(--text);
+    }
+    .mobile-menu .nav-cta{
+      display:inline-flex;
+      margin-top:30px;
+      width:fit-content;
+    }
+
+    .section{ padding:90px 0; }
+    .section-head{ flex-direction:column; align-items:flex-start; gap:14px; }
+    .projects-grid{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+    form.contact-form{ padding:28px; }
+    .hero-meta{ flex-wrap:wrap; row-gap:16px; }
+    .site-footer .wrap{ flex-direction:column; gap:16px; text-align:center; }
+
+    .device-case{ width:100%; height:380px; }
+
+    .career-map{ margin-top:60px; }
+    .career-line{
+      top:0; bottom:0; left:5px; right:auto;
+      width:1px; height:auto;
+      background-image:repeating-linear-gradient(180deg, var(--panel-line) 0 6px, transparent 6px 14px);
+      transform:none;
+    }
+    .career-track{ flex-direction:column; height:auto; gap:30px; }
+    .career-node{
+      display:flex;
+      grid-template-rows:unset;
+      flex-direction:row;
+      align-items:center;
+      justify-items:start;
+      text-align:left;
+      gap:16px;
+      padding:0;
+    }
+    .node-dot{ margin-left:1px; flex:none; }
+    .career-node.above .node-label,
+    .career-node.below .node-label{
+      grid-row:unset;
+      align-self:auto;
+      padding:0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAVBAR
+     ============================================ -->
+<header class="navbar" id="navbar">
+  <div class="wrap">
+    <a href="#home" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 26 26" fill="none">
+          <rect x="1" y="1" width="24" height="24" rx="4" stroke="#F4A340" stroke-width="1.4"/>
+          <path d="M8 17L13 7L18 17" stroke="#F4A340" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Prem Prakash
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">Start a project</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Start a project</a>
+  </div>
+</header>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Network live</div>
+      <h1>I architect wireless networks — and the <em>AI</em> that runs them.</h1>
+      <p>20+ years designing and delivering Wi-Fi, LTE, 5G &amp; industrial network solutions — now paired with AI agents, chatbots, and automation that keep operations running.</p>
+
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">
+          View selected work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <strong>20+ yrs</strong>
+          In wireless &amp; IT
+        </div>
+        <div>
+          <strong>50+</strong>
+          Team members led
+        </div>
+        <div>
+          <strong>10K+</strong>
+          Base stations delivered
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="viewfinder">
+        <span class="vf-corner tl"></span>
+        <span class="vf-corner tr"></span>
+        <span class="vf-corner bl"></span>
+        <span class="vf-corner br"></span>
+        <span class="vf-scanline"></span>
+        <span class="vf-status"><span class="dot"></span> Network live</span>
+
+        <iframe src='https://my.spline.design/claritystream-qM5PJKDTGq2D05mtq3Gg3iJh/' frameborder='0' width='100%' height='100%' title="Interactive 3D scene"></iframe>
+      </div>
+      <div class="vf-caption">
+        <span>FIG. 01 — INTERACTIVE MODEL</span>
+        <span>DRAG TO ROTATE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PROJECTS / ACHIEVEMENTS
+     ============================================ -->
+<section class="section bg-alt" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Selected work</div>
+        <h2>Projects, rollouts, and<br>deployments worth showing.</h2>
+      </div>
+      <p>Solution architecture and service delivery across telecom operators — spanning network builds, vendor swaps, and multi-year managed services.</p>
+    </div>
+
+    <div class="projects-grid reveal">
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">Solution Architect</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Maersk GSC, Bangalore</h3>
+        <p>Design and deployment of private LTE with RAN sharing (APMT Mobile, with Verizon), a VPN gateway leveraging public LTE (APMT Lazaro, Mexico), and Wi-Fi 6E with a private network (APMT Yucatan, Mexico).</p>
+        <div class="card-metric">
+          <span>Apr '23 — present</span>
+          <strong>38 APMT terminals</strong>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">AI Engineering</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Virtual Collector — AI voice agent</h3>
+        <p>Building voice AI agents to support payment-milestone collection, alongside chatbots and automated alarm/performance dashboards for cellular services across APMT terminals.</p>
+        <div class="card-metric">
+          <span>Jul '26 — present</span>
+          <strong>AI agents in production</strong>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">NIS Lead</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Globe Telecom, Philippines</h3>
+        <p>End-to-end remote delivery of GSM/UMTS/LTE/M-MIMO/5G network for Huawei — from HLD/LLD design through site integration, SLAs, escalations, and multi-vendor coordination.</p>
+        <div class="card-metric">
+          <span>Mar '22 — Apr '23</span>
+          <strong>50+ resources led</strong>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">Solution Architect</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Bharti Airtel, Karnataka</h3>
+        <p>Circle Technical Lead for RAN, OSS, and Core deployments — 2G/3G/4G/Massive MIMO integration, KPI troubleshooting, OSS/BSC/RNC transformation, and new-feature UAT.</p>
+        <div class="card-metric">
+          <span>Sept '19 — Feb '22</span>
+          <strong>Circle-wide rollout</strong>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">Solution Architect</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Vodafone Idea, Bihar &amp; Jharkhand</h3>
+        <p>Architected a large-scale wireless network merger — HLD/LLD, VLAN/IP planning, and vendor swaps across 2G/3G/4G/LTE/VoLTE with minimal live-network impact.</p>
+        <div class="card-metric">
+          <span>Jan '17 — Aug '19</span>
+          <strong>10,000+ base stations</strong>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <span class="card-tag">Certifications</span>
+          <span class="card-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <h3>Certified &amp; company-trained</h3>
+        <p>CCNA certified, with LTE, 5G, and OSS product training delivered directly by Huawei HQ.</p>
+        <div class="card-metric">
+          <span>CCNA</span>
+          <strong>Huawei HQ trained</strong>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <div class="device-case">
+          <input type="radio" name="mode" id="app1" class="inputs" checked="" />
+          <input type="radio" name="mode" id="app2" class="inputs" />
+          <input type="radio" name="mode" id="app3" class="inputs" />
+          <input type="radio" name="mode" id="app4" class="inputs" />
+
+          <div class="speaker-grille"></div>
+
+          <div class="screen-window">
+            <div class="glass-glare"></div>
+            <div class="freq-needle"></div>
+
+            <div class="tuner-band">
+              <div class="panel panel-1">
+                <div class="label">Rollout Log</div>
+                <div style="text-align:center;">
+                  <div class="counter-box">0 4 2</div>
+                </div>
+                <div class="tape-mechanism">
+                  <div class="spool"></div>
+                  <div class="spool"></div>
+                </div>
+                <div class="freq-display">
+                  <span>2G</span>
+                  <span>3G</span>
+                  <span>4G</span>
+                  <span>5G</span>
+                </div>
+              </div>
+
+              <div class="panel panel-2">
+                <div class="label">Signal Monitor</div>
+                <div class="waveform">
+                  <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.5s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.2s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.4s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.6s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.1s"></div>
+                  <div class="wave-bar" style="animation-delay: 0.3s"></div>
+                </div>
+                <div style="margin-top: 16px; font-size: 1.7rem; font-weight: 800; text-align: center;">
+                  98.6 <span style="font-size: .85rem; color: #938e80;">MHz</span>
+                </div>
+                <div class="freq-display">
+                  <span>NR</span>
+                  <span>26</span>
+                  <span>28</span>
+                  <span>39</span>
+                </div>
+              </div>
+
+              <div class="panel panel-3">
+                <div class="label">System Config</div>
+                <div class="switch-row">
+                  <div class="toggle">
+                    <span>RAN Live</span>
+                    <div class="toggle-graphic" style="background:var(--accent-orange);">
+                      <div style="position:absolute; right:2px; top:2px; width:14px; height:14px; background:#fff; border-radius:50%;"></div>
+                    </div>
+                  </div>
+                  <div class="toggle">
+                    <span>Open RAN</span>
+                    <div class="toggle-graphic"></div>
+                  </div>
+                  <div class="toggle">
+                    <span>CU / DU</span>
+                    <div class="toggle-graphic"></div>
+                  </div>
+                  <div class="toggle">
+                    <span>AI Agents</span>
+                    <div class="toggle-graphic"></div>
+                  </div>
+                </div>
+                <div class="freq-display">
+                  <span>SW</span>
+                  <span>4</span>
+                  <span>6</span>
+                  <span>8</span>
+                </div>
+              </div>
+
+              <div class="panel panel-4">
+                <div class="label">Network Uptime</div>
+                <div style="width: 100%; height: 26px; border: 1px solid #a8a49a; border-radius: 4px; padding: 2px; margin-top: 26px;">
+                  <div style="width: 99%; height: 100%; background: var(--text-dark);"></div>
+                </div>
+                <div style="margin-top: 8px; font-size: 0.75rem; text-align: right; color:var(--text-dark);">
+                  99% UPTIME
+                </div>
+                <div class="freq-display">
+                  <span>LW</span>
+                  <span>150</span>
+                  <span>200</span>
+                  <span>250</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls-strip">
+            <label for="app1" class="push-btn"><span class="btn-label">Rollout</span></label>
+            <label for="app2" class="push-btn"><span class="btn-label">Signal</span></label>
+            <label for="app3" class="push-btn"><span class="btn-label">Config</span></label>
+            <label for="app4" class="push-btn"><span class="btn-label">Uptime</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-copy reveal">
+        <div class="eyebrow" style="margin-bottom:20px;">About</div>
+        <h2 style="font-size:clamp(28px,3vw,38px); margin-bottom:28px;">20+ years turning rollout plans into networks that hold up in production.</h2>
+
+        <p>I'm a senior IT and wireless professional with 20+ years of experience in <strong>Wi-Fi, LTE, 5G, and industrial network solutions</strong>, combined with AI and automation expertise. I hold a B.E. in Electronics &amp; Telecommunication, and my work spans telecom, IT infrastructure, and managed services.</p>
+
+        <p>My work sits at the intersection of network design and modern automation — designing and delivering wireless infrastructure while leveraging AI-driven workflows, LLMs, chatbots, and automation tools to improve efficiency, operations, and service delivery. I'm known for combining deep networking knowledge with modern automation to build scalable, reliable, future-ready solutions.</p>
+
+        <blockquote class="about-quote">
+          "Every network swap — and every automation — succeeds by being invisible to the people who rely on it."
+        </blockquote>
+
+        <p>Beyond delivery, I've trained customers, partners, and teams on AI tools, LTE, and 5G technologies, managed subcontractor and vendor relationships, and kept live networks running at up to 99.99% uptime with minimum MTTR.</p>
+
+        <div class="skills-marquee">
+          <div class="marquee-row ltr">
+            <span class="skill-chip">LLMs &amp; Prompt Engineering</span>
+            <span class="skill-chip">RAG &amp; AI Agents</span>
+            <span class="skill-chip">n8n / Make / Power Automate</span>
+            <span class="skill-chip">Enterprise Chatbots</span>
+            <span class="skill-chip">LLMs &amp; Prompt Engineering</span>
+            <span class="skill-chip">RAG &amp; AI Agents</span>
+            <span class="skill-chip">n8n / Make / Power Automate</span>
+            <span class="skill-chip">Enterprise Chatbots</span>
+          </div>
+          <div class="marquee-row rtl">
+            <span class="skill-chip">Private LTE &amp; Wi-Fi 6E</span>
+            <span class="skill-chip">Open RAN &amp; CU/DU</span>
+            <span class="skill-chip">3GPP — NAS · RRC · PDCP</span>
+            <span class="skill-chip">Cisco Security &amp; VPN</span>
+            <span class="skill-chip">Private LTE &amp; Wi-Fi 6E</span>
+            <span class="skill-chip">Open RAN &amp; CU/DU</span>
+            <span class="skill-chip">3GPP — NAS · RRC · PDCP</span>
+            <span class="skill-chip">Cisco Security &amp; VPN</span>
+          </div>
+          <div class="marquee-row ltr">
+            <span class="skill-chip">RFP &amp; Vendor Engagement</span>
+            <span class="skill-chip">UAT &amp; Lab Testing</span>
+            <span class="skill-chip">Training &amp; Mentoring</span>
+            <span class="skill-chip">Python &amp; REST APIs</span>
+            <span class="skill-chip">RFP &amp; Vendor Engagement</span>
+            <span class="skill-chip">UAT &amp; Lab Testing</span>
+            <span class="skill-chip">Training &amp; Mentoring</span>
+            <span class="skill-chip">Python &amp; REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="career-map reveal">
+      <div class="career-map-head">
+        <div class="eyebrow" style="margin-bottom:14px;">Career route</div>
+        <h2 style="font-size:clamp(24px,2.6vw,32px);">Nine stops, one continuous signal.</h2>
+      </div>
+      <div class="career-line"></div>
+      <div class="career-track">
+        <div class="career-node above">
+          <div class="node-label">
+            <span class="node-year">2006</span>
+            <strong>Nokia India</strong>
+            <span class="node-role">RAN Engineer</span>
+          </div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="career-node below">
+          <div class="node-dot"></div>
+          <div class="node-label">
+            <span class="node-year">2007</span>
+            <strong>Nokia India</strong>
+            <span class="node-role">BSS L2 Support</span>
+          </div>
+        </div>
+        <div class="career-node above">
+          <div class="node-label">
+            <span class="node-year">2009</span>
+            <strong>ZTE Telecom</strong>
+            <span class="node-role">RAN Specialist</span>
+          </div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="career-node below">
+          <div class="node-dot"></div>
+          <div class="node-label">
+            <span class="node-year">2010</span>
+            <strong>Nokia Solutions</strong>
+            <span class="node-role">RAN Specialist</span>
+          </div>
+        </div>
+        <div class="career-node above">
+          <div class="node-label">
+            <span class="node-year">2015</span>
+            <strong>Huawei — Telenor</strong>
+            <span class="node-role">Wireless SME</span>
+          </div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="career-node below">
+          <div class="node-dot"></div>
+          <div class="node-label">
+            <span class="node-year">2017</span>
+            <strong>Huawei — Vodafone Idea</strong>
+            <span class="node-role">Solution Architect</span>
+          </div>
+        </div>
+        <div class="career-node above">
+          <div class="node-label">
+            <span class="node-year">2019</span>
+            <strong>Huawei — Bharti Airtel</strong>
+            <span class="node-role">Solution Architect</span>
+          </div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="career-node below">
+          <div class="node-dot"></div>
+          <div class="node-label">
+            <span class="node-year">2022</span>
+            <strong>Huawei — Globe Telecom</strong>
+            <span class="node-role">NIS Lead</span>
+          </div>
+        </div>
+        <div class="career-node above">
+          <div class="node-label">
+            <span class="node-year">2023</span>
+            <strong>Maersk GSC</strong>
+            <span class="node-role">Solution Architect — Present</span>
+          </div>
+          <div class="node-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CONTACT
+     ============================================ -->
+<section class="section bg-alt" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="eyebrow" style="margin-bottom:18px;">Contact</div>
+        <h2>Have a network to plan?<br>Let's talk it through.</h2>
+        <p>Open to solution architecture, network integration, and service delivery engagements — remote or on-site, with operators anywhere.</p>
+
+        <ul class="contact-list">
+          <li>
+            <span class="label">Email</span>
+            <a href="mailto:premprakash.g@rediffmail.com" class="value">premprakash.g@rediffmail.com</a>
+          </li>
+          <li>
+            <span class="label">Phone</span>
+            <a href="tel:+917257000120" class="value">+91 72570 00120</a>
+          </li>
+          <li>
+            <span class="label">Elsewhere</span>
+            <a href="https://www.linkedin.com/in/prem-prakash-82582423/" class="value" target="_blank" rel="noopener">LinkedIn — /in/prem-prakash</a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Project or circle</label>
+          <input type="text" id="subject" name="subject" placeholder="A short project title">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me a bit about the project, timeline, and budget range." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="contactSubmit" style="width:100%; justify-content:center;">
+          Send message
+        </button>
+        <div class="form-note">Replies come from premprakash.g@rediffmail.com — no spam, ever.</div>
+        <div class="form-success" id="formSuccess">
+          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--success);display:inline-block;"></span>
+          Message sent!
+        </div>
+        <div class="form-error" id="formError">
+          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:#F16565;display:inline-block;"></span>
+          Something went wrong
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year"></span> Prem Prakash. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#home" class="back-to-top">
+      Back to top
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 8L6 4L10 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // ---- Navbar scroll state ----
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 20);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ---- Mobile menu toggle ----
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ---- Scroll reveal ----
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---- Footer year ----
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- ============================================
+     SUPABASE CONTACT FORM
+     ============================================ -->
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+  const SUPABASE_URL = 'https://dupctzdrgehxvxvnaqrf.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR1cGN0emRyZ2VoeHZ4dm5hcXJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyNTQxOTEsImV4cCI6MjEwMTgzMDE5MX0.r095Ncy4VpwPBdTJihT5TmUNpTEJRlzLRP2UiuyQxWM';
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('contactSubmit');
+  const success = document.getElementById('formSuccess');
+  const error = document.getElementById('formError');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    success.classList.remove('is-visible');
+    error.classList.remove('is-visible');
+
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const message = form.querySelector('#message').value.trim();
+
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const { error: insertError } = await supabase
+        .from('messages')
+        .insert([{ name, email, message }]);
+
+      if (insertError) throw insertError;
+
+      success.classList.add('is-visible');
+      form.reset();
+    } catch (err) {
+      console.error('Supabase insert failed:', err);
+      error.classList.add('is-visible');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+</script>
+
+</body>
+</html>
